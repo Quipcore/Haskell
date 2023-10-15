@@ -2,15 +2,16 @@ module Main where
 
 main :: IO ()
 main = do
-    let min = 10
-        max = 20
-        n = 15
-    putStrLn ("Min: "++ show min ++ "\t\tMax: " ++ show max ++ "\t\tList:" ++ show (createList min max))
-    putStrLn ("[" ++ show min ++ ".." ++ show max ++"] contains " ++ show n ++ " => " ++ show (contains (createList min max) n))
-    putStrLn (show (createDupList min max) ++ " =>/remove dups/=> " ++ show (removeDuplicates(createDupList min max)))
-    putStrLn (show (isAscending(removeDuplicates(createDupList min max))))
-    putStrLn (show (hasPath [(1,2),(2,3)] 1 3))
+--    let min = 10
+--        max = 20
+--        n = 15
+--    putStrLn ("Min: "++ show min ++ "\t\tMax: " ++ show max ++ "\t\tList:" ++ show (createList min max))
+--    putStrLn ("[" ++ show min ++ ".." ++ show max ++"] contains " ++ show n ++ " => " ++ show (contains (createList min max) n))
+--    putStrLn (show (createDupList min max) ++ " =>/remove dups/=> " ++ show (removeDuplicates(createDupList min max)))
+--    putStrLn (show (isAscending(removeDuplicates(createDupList min max))))
+--    putStrLn (show (hasPath [(1,2),(2,3)] 1 3))
     putStrLn (show (fac 5))
+
 
 
 fac :: Int -> Int

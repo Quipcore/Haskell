@@ -16,9 +16,9 @@ EXE = $(OUTDIR)/$(EXEFILE)
 # Default target
 all: run
 
-# Compile the Haskell source file
+# Compile the Haskell source file and move all generated files to the out directory
 $(EXE): $(SRC)
-	$(GHC) -o $(EXE) $(SRC)
+	$(GHC) -outputdir $(OUTDIR) -o $(EXE) $(SRC)
 
 # Run the executable
 run: $(EXE)
@@ -26,6 +26,6 @@ run: $(EXE)
 
 # Clean up compiled files
 clean:
-	rm -f $(EXE)
+	rm -f $(EXE) $(OUTDIR)/*.o $(OUTDIR)/*.hi
 
 .PHONY: all run clean
