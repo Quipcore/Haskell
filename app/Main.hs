@@ -69,3 +69,7 @@ removeDuplicatesSolution [] = []
 removeDuplicatesSolution (x:xs)
     | x `elem` xs = removeDuplicatesSolution xs --More or less the same, just different way of calling elem
     | otherwise = x : removeDuplicatesSolution xs
+
+isAsc :: [Int] -> Bool
+isAsc [] = True
+isAsc (x:xs) = (x < head xs) && (isAsc xs)
