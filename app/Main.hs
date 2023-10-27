@@ -12,6 +12,9 @@ main = do
     putStrLn (show (ascendingList 1 3))
     putStrLn (show (elementIn 3 [1..3]))
     putStrLn (show (removeDuplicates [1,2,1]))
+    putStrLn (show (isAsc [1,2,3]))
+    putStrLn (show (isAsc [1,1,3]))
+    putStrLn (show (isAsc [3,2,1]))
 
 -- Factorial
 fac :: Int -> Int
@@ -63,13 +66,15 @@ removeDuplicates (x:xs)
     | elem x xs = removeDuplicates xs
     | otherwise = x : removeDuplicates xs
 
--- Solution
+-- Solution #5.2
 removeDuplicatesSolution :: (Eq a) => [a] -> [a]
 removeDuplicatesSolution [] = []
 removeDuplicatesSolution (x:xs)
     | x `elem` xs = removeDuplicatesSolution xs --More or less the same, just different way of calling elem
     | otherwise = x : removeDuplicatesSolution xs
 
+-- Exercise and solution #5.3
 isAsc :: [Int] -> Bool
 isAsc [] = True
-isAsc (x:xs) = (x < head xs) && (isAsc xs)
+isAsc [x] = True
+isAsc (x:y:xs) = (x <= y) && (isAsc (y:xs))
