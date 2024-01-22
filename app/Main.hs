@@ -6,15 +6,15 @@ module Main where
 
 main :: IO ()
 main = do
-    putStrLn (show (fac 6))
-    putStrLn (show (factorial 6))
-    putStrLn (show (summationPlus 1 2))
-    putStrLn (show (ascendingList 1 3))
-    putStrLn (show (elementIn 3 [1..3]))
-    putStrLn (show (removeDuplicates [1,2,1]))
-    putStrLn (show (isAsc [1,2,3]))
-    putStrLn (show (isAsc [1,1,3]))
-    putStrLn (show (isAsc [3,2,1]))
+    print (fac 6)
+    print (factorial 6)
+    print (summationPlus 1 2)
+    print (ascendingList 1 3)
+    print (elementIn 3 [1..3])
+    print (removeDuplicates [1,2,1])
+    print (isAsc [1,2,3])
+    print (isAsc [1,1,3])
+    print (isAsc [3,2,1])
 
 -- Factorial
 fac :: Int -> Int
@@ -23,8 +23,8 @@ fac n
     | otherwise = n * fac(n-1)
 
 -- Pattern matching
-is_zero 0 = True
-is_zero _ = False
+isZero 0 = True
+isZero _ = False
 
 -- Factorial with accumulator
 factorial n = aux n 1
@@ -34,7 +34,7 @@ factorial n = aux n 1
             | otherwise = aux (n-1) (n*acc)
 
 -- Experimentation with accumulator and aux functions
-summationPlus a b = (aux1 a 1) + (aux2 b 1) --Sum of function1, function2 and 2
+summationPlus a b = aux1 a 1 + aux2 b 1 --Sum of function1, function2 and 2
     where
         aux1 n acc = n + acc --Function 1
         aux2 n acc = n + acc --Function 2
@@ -57,7 +57,7 @@ elementIn e (x:xs)
 -- Solution #5.1
 elementInSolution :: (Eq a) => a -> [a] -> Bool
 elementInSolution _ [] = False
-elementInSolution e (x:xs) = (e == x) || (elementInSolution e xs)
+elementInSolution e (x:xs) = (e == x) || elementInSolution e xs
 
 -- Exercise #5.2, same as nub
 removeDuplicates :: (Eq a) => [a] -> [a]
@@ -77,4 +77,4 @@ removeDuplicatesSolution (x:xs)
 isAsc :: [Int] -> Bool
 isAsc [] = True
 isAsc [x] = True
-isAsc (x:y:xs) = (x <= y) && (isAsc (y:xs))
+isAsc (x:y:xs) = (x <= y) && isAsc (y:xs)
