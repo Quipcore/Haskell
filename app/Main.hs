@@ -1,4 +1,5 @@
 module Main where
+import Data.Text (append)
 
 --import Data.List --the Haskell stdlib for lists
 
@@ -15,6 +16,7 @@ main = do
     print (isAsc [1,2,3])
     print (isAsc [1,1,3])
     print (isAsc [3,2,1])
+    print (reverseStr "hello World!")
 
 -- Factorial
 fac :: Int -> Int
@@ -78,3 +80,8 @@ isAsc :: [Int] -> Bool
 isAsc [] = True
 isAsc [x] = True
 isAsc (x:y:xs) = (x <= y) && isAsc (y:xs)
+
+-- Reverse string
+reverseStr :: String -> String
+reverseStr "" = ""
+reverseStr (x:xs) = reverseStr xs ++ [x] 
